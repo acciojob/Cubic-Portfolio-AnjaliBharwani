@@ -1,75 +1,66 @@
-//your code here
-.scene-1{
-	height:600px;
-	width:100%;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	text-align:center;
-	background-color:beige
-	
-}
-.cube-1{
-	height:200px;
-	width:200px;
-	position:relative;
-	line-height:200px;
-	transform-style:preserve-3d;
-	animation: spin 3s ease-in-out infinite;
-}
-.box{
-	height:100%;
-	width:100%;
-	position:absolute;
-
-	background:rgba(226, 161, 253, 0.5);
-	border:1px solid black;
+.scene-1 {
+  width: 600px;
+  height: 500px;
+  perspective: 800px;
 }
 
-.top{
-	transform:rotateX(90deg);
-	margin-top:-100px;
-	  	   background:rgba(200, 121, 200, 0.5);
-}
-.right{
-	transform:rotateY(90deg);
-	margin-left:100px;
-	   background:rgba(200, 201, 205, 0.5);
-	
-}
-.bottom{
-	transform:rotateX(-90deg);
-	margin-top:100px;
-	   background:rgba(200, 101, 205, 0.5);
-	
-}
-.left{
-	transform:rotateY(-90deg);
-	margin-left:-100px;
-}
-.front{
-    transform:translateZ(100px);
-}
-.back{
-	transform:translateZ(-100px) rotateX(180deg);
-	   background:rgba(200, 101, 285, 0.5);
-	
+/* Cube Styles */
+.cube-1 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 10s infinite linear;
 }
 
-@keyframes spin{
-	0%{
-	   transform:rotateX(-30deg) rotateY(-20deg);
-      }
-     100%{
-        transform: rotateX(20deg) rotateY(-360deg);
-	 }
+/* Cube Animation */
+@keyframes rotateCube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
 }
 
-/* @keyframes spin{
-	0%{
-	   transform:rotateX(-20deg) rotateY(20deg);
-      }
-     100%{
-        transform: rotateX(-20deg) rotateY(740deg);
-	 }
-} */
+/* Face Styles */
+.face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.front {
+  transform: translateZ(50px);
+  background-color: lightblue;
+}
+
+.back {
+  transform: translateZ(-50px) rotateY(180deg);
+  background-color: lightgreen;
+}
+
+.left {
+  transform: translateX(-50px) rotateY(-90deg);
+  background-color: lightpink;
+}
+
+.right {
+  transform: translateX(50px) rotateY(90deg);
+  background-color: lightcoral;
+}
+
+.top {
+  transform: translateY(-50px) rotateX(90deg);
+  background-color: lightyellow;
+}
+
+.bottom {
+  transform: translateY(50px) rotateX(-90deg);
+  background-color: lightsalmon;
+}
